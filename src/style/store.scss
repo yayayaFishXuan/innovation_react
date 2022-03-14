@@ -1,0 +1,31 @@
+$phones-media: 768px;
+@media only screen and (max-width: $phones-media) {
+  // 手機css
+}
+@media only screen and (min-width: $phones-media) {
+  .store {
+    width: 90vw;
+    height: auto;
+    margin: 0px auto;
+    text-align: center;
+    .eachItem {
+      float: left;
+      width: 15vw;
+      height: 45vh;
+      margin: 1.5vw;
+    }
+    .marketImg {
+      width: 75%;
+      background-color: white;
+      border: none;
+      text-decoration: none;
+      color: black;
+      img {
+        width: 100%;
+      }
+    }
+    .marketImg:hover {
+      cursor: pointer; //鼠標變手指頭
+    }
+  }
+}
