@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .tit {
+    width: 100%;
+    // height: 80vh;
+    height: calc(100vh - 60px);
+    background-image: url('../assets/home/art3.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    .down {
+      cursor: pointer;
+      position: absolute;
+      bottom: 30px;
+      font-size: 60px;
+      display: flex;
+      flex-direction: column;
+      animation-name: updown;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      color: white;
+      i {
+        margin: -15px 0;
+      }
+    }
+  }
+  @keyframes updown {
+    0% {
+      transform: translatey(0);
+    }
+    50% {
+      transform: translatey(-20px);
+    }
+    100% {
+      transform: translatey(0px);
+    }
+  }
+  h1,
+  h2 {
+    text-align: center;
+    margin: 10px 30px;
+  }
+  .contain {
+    width: 80%;
+    margin: 40px 0px;
+    h1,
+    h2 {
+      margin: 20px 30px;
+    }
+  }
+  
+  $phones-media: 768px;
+  @media only screen and (max-width: $phones-media) {
+    .contain {
+      width: 100%;
+    }
+    .image-text {
+      border: solid 1px gray;
+      padding: 10px;
+      margin: 30px;
+      .image {
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .image-text::before {
+      content: '';
+      width: calc(100vw - 60px);
+      height: 30vh;
+      background: rgba(0, 0, 0, 0.435);
+      position: relative;
+    }
+  }
+  @media only screen and (min-width: $phones-media) {
+    .image-text {
+      margin: 80px 0;
+      width: 80vw;
+      display: flex;
+      align-items: center;
+      .image {
+        width: 50%;
+        img {
+          width: 80%;
+        }
+      }
+      .text {
+        width: 50%;
+      }
+    }
+    .image-text:nth-child(odd) {
+      flex-direction: row-reverse;
+      .image img {
+        float: right;
+      }
+    }
+    .image-text:nth-child(6) {
+      .image img {
+        margin: 0 50px;
+        width: 45%;
+      }
+    }
+  }
