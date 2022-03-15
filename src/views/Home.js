@@ -11,7 +11,7 @@ class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: [{
+            datas: [{
                 img_src: require('../assets/home/art1.jpg'),
                 text_title: '獨一無二的價值',
                 text_con:
@@ -75,7 +75,7 @@ class Home extends Component {
                         ,藝術創作者不但能夠自由地發佈自己的作品進行交易,還能透過社群與他人互相交流,藉此取相關收益並提升知名度,大眾也可透過轉售提升作品的價值,賺取中間利潤。
                     </h2>
 
-                    {this.state.data.map((data, key) => (
+                    {this.state.datas.map((data, key) => (
                         <div className="image-text" key={key} >
                             <div className="image" >
                                 <img src={data.img_src}  />
