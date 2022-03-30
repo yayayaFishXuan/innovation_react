@@ -1,10 +1,62 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useContext } from 'react';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import Logo from "../../assets/Logo.svg";
+import { InitContext } from '../../index';
 
-const { Header } = Layout;
-const App = () => {
+const Header = () => {
+  const contextData = useContext(InitContext); //取得數據
+  let history = useHistory(); //取得history
+  const location = useLocation();
+  const ethereum = window.ethereum
+
+  const init = () => {
+    if (contextData.isinstall === true) {
+      login()
+    }
+  }
+
+
+  async function login() {
+    const accounts = await ethereum.request({
+      method: 'eth_requestAccounts'
+    })
+    const account = accounts[0]
+    contextData.setAddress(account)
+  }
+
+
+  function InstallMetaMask() {
+    //有條件式的話好像要用useEffect包起來 不然會出錯
+    useEffect(() => {
+      if (typeof ethereum !== 'undefined' && ethereum.isMetaMask) {
+        contextData.setIsinstall(true);
+        // init()
+      } else {
+        contextData.setIsinstall(false);
+      }
+    }, [contextData])
+  }
+
+
+  const { Header } = Layout;
+  InstallMetaMask()
+  init()
+
+
+  useEffect(() => {
+    if (
+
+      contextData.address === null ||
+      contextData.address === 'undefined' ||
+      contextData.address === ''
+    ) {
+      if (history.location.pathname !== '/')
+        history.push('/');
+      // window.location.assign("http://localhost:3000/")    
+    }
+  }, [location])
+
   return (
     <Header className="header" style={{ zIndex: 1, width: '100%', background: '#fff' }}>
       <Menu mode="horizontal">
@@ -13,7 +65,6 @@ const App = () => {
             <img style={{ marginRight: '10px' }} src={Logo} alt="Logo" />
             <span style={{ fontSize: '22px' }}>INNOVATION</span>
           </div>
-
         </Menu.Item>
         <Menu.Item key="/Rank">
           <span>排行榜</span>
@@ -29,7 +80,7 @@ const App = () => {
         </Menu.Item>
       </Menu>
     </Header>
-  );
-};
 
-export default App;
+  )
+}
+export default Header;
