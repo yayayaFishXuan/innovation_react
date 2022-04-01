@@ -5,15 +5,15 @@ export const Data = () => {
 
   const [address, setAddress] = React.useState('');
   const [isinstall, setIsinstall] = React.useState(false);
-  // const [tipShow, setTipShow] = React.useState(tipshow);
+  const [tipShow, setTipShow] = React.useState('none');
   // const [backTopShow, setBackTopShow] = React.useState(backtopshow);
   return {
     address,
     setAddress,
     isinstall, 
     setIsinstall, 
-    // tipShow, 
-    // setTipShow, 
+    tipShow, 
+    setTipShow, 
     // backTopShow, 
     // setBackTopShow
   };

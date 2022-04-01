@@ -1,0 +1,156 @@
+.el-container {
+    min-height: 100vh;
+  }
+  header {
+    min-height: 60px;
+    padding: 0 !important;
+    position: absolute;
+    width: 100vw;
+    z-index: 100;
+    p {
+      font-size: 20px;
+    }
+  }
+  main {
+    padding: 0;
+    flex-grow: 1;
+    // height: calc(100vh - 60px);
+  }
+  
+  .social-link {
+    display: flex;
+    a {
+      padding: 0 5px;
+    }
+  }
+  .el-menu--horizontal {
+    background: #ffffff8d;
+    box-shadow: 0px 3px #3434345a;
+    justify-content: flex-end;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+    li > p > i {
+      font-size: 25px;
+    }
+  }
+  
+  .el-button--info {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 25px;
+    bottom: 25px;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+  }
+  .installtip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .box {
+      max-width: 72rem;
+      max-height: calc(100% - 6.4rem);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      background: white;
+      height: 60vh;
+      width: 60vw;
+      border-radius: 5px;
+      div {
+        width: 100%;
+        h2 {
+          margin: 0;
+        }
+      }
+      div:nth-child(1) {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        .el-button--primary {
+          font-size: 1.5em;
+        }
+      }
+      div:nth-child(3) {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+        color: gray;
+        img {
+          height: 50%;
+          max-width: 90%;
+        }
+        .el-button--primary {
+          font-size: 1.5em;
+          a {
+            text-decoration: none;
+            color: white;
+          }
+        }
+      }
+    }
+    .box::before {
+      content: '';
+      height: calc(61vh + 0.2rem);
+      width: calc(61vw + 0.2rem);
+      background: rgba(0, 0, 0, 0.435);
+      position: absolute;
+      filter: blur(0.3rem);
+      z-index: -10;
+      transform: translateX(0.5rem);
+    }
+  }
+  
+  $phones-media: 768px;
+  @media only screen and (max-width: $phones-media) {
+    // phone css
+    .installtip {
+      .box {
+        overflow-y: auto;
+        padding: 5px;
+        width: 90vw;
+        height: 90vh;
+        button {
+          max-width: 90%;
+          a {
+            font-size: 4.5vw;
+          }
+        }
+        div:nth-child(1) {
+          line-height: 4vh;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center !important;
+          width: 100%;
+          text-align: center;
+        }
+        div:nth-child(3) {
+          img {
+            max-width: 90%;
+          }
+          h2 {
+            font-size: 6vw;
+          }
+        }
+        
+      }
+    }
+  }
+  @media only screen and (min-width: $phones-media) {
+    //電腦css
+    .el-menu--horizontal > .el-menu-item.left-dock {
+      position: absolute;
+      left: 0;
+    }
+  }
