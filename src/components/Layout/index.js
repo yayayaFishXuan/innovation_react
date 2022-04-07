@@ -4,10 +4,10 @@ import Header from './header';
 const { Content } = Layout;
 const LayoutWithRoute = ({ children }) => {
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout style={{ minHeight: '100vh'}} >
       <Header />
       <Layout>
-        <Content>{children}</Content>
+        <Content style={{background:'#fff'}}>{children}</Content>
       </Layout>
     </Layout>
   );

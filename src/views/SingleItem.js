@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import '../style/SingleItem.scss';
-import { Button } from 'antd';
+import { Button,Rate } from 'antd';
+import TurnoverRateLine from '../components/Chart/PriceInformation'
 class SingleItem extends Component {
     constructor(props) {
-        console.log(props.location.state);
+        // console.log(props.location.state);
         super(props)
         this.state = {
             single: [],
@@ -33,7 +34,7 @@ class SingleItem extends Component {
                     <div className="ItemBox">
                         <div className="container">
                             <img src={market.img} style={{ width: '70%', marginLeft: '15%' }} />
-
+                            
                             <div className="middle">
                                 <div className="text">{describe}</div>
                             </div>
@@ -46,19 +47,24 @@ class SingleItem extends Component {
                             </b>
                         </font>
                         <br />
-                        <img src={trendUrl} style={{ width: '75%' }} />
+                        <TurnoverRateLine  />
+                        <br />
+                        <font>請為這個作品評分：</font><Rate />
                         <br />
                         <font color="#427fdb">持有者：</font>
                         {market.author}
                         <br />
                         <font color="#427fdb">Token Id：</font>
-                        #{TokenId}
+                        #{market.id}
                         <br />
                         <font color="#427fdb">價格：</font>
                         {market.price}ETH
                         <br />
                         <Button>
                             購買
+                        </Button>
+                        <Button>
+                            競標
                         </Button>
                     </div>
                 </div >
