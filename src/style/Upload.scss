@@ -1,0 +1,139 @@
+$phones-media: 768px;
+@media only screen and (max-width: $phones-media) {
+  // 手機css
+}
+@media only screen and (min-width: $phones-media) {
+  .imageDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .imageInput {
+    display: none;
+  }
+  .img-cropper {
+    margin-top: 3vh;
+    div,
+    img {
+      width: 30vw;
+      height: 30vw;
+    }
+  }
+  .imageDiv a {
+    font-size: 50px;
+    color: grey;
+    -webkit-text-stroke: 0.1px white;
+    position: absolute;
+    z-index: 10;
+  }
+  .hideItem {
+    display: none;
+  }
+  /* 上面是左邊 */
+  .upload {
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-image: url('../assets/upload/background.jpg');
+    background-size: 100%;
+    background-position: center center;
+  }
+  .formDiv {
+    width: 50%;
+    height: 100%;
+    float: left;
+    display: flex;
+    align-items: center;
+  }
+  .el-form {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 3px 3px 8px 3px #cccccc;
+    width: 35vw;
+    height: 35vw;
+    min-height: 400px;
+    position: relative;
+    margin: auto;
+    /* padding: 3px; */
+  }
+  .el-form-item {
+    padding: 10px 10px 3px 10px;
+    margin: 0px;
+    /* 紅字空間 */
+  }
+  ::v-deep .el-form-item__error {
+    /* 紅字 */
+    padding-top: 2px;
+  }
+  ::v-deep .el-form--label-top .el-form-item__label {
+    padding: 3px 0;
+  }
+  ::v-deep .el-form-item__label {
+    line-height: 14px;
+  }
+  .el-input {
+    line-height: 35px;
+  }
+  ::v-deep .el-input__inner {
+    height: 35px;
+    line-height: 35px;
+  }
+  ::v-deep .el-form-item__content {
+    line-height: 35px;
+  }
+  .el-select {
+    width: 100%;
+  }
+  .el-checkbox {
+    height: 20px;
+  }
+  ::v-deep .el-checkbox__label {
+    padding-left: 3px;
+  }
+  .btn {
+    width: 100%;
+    float: right;
+    text-align: right;
+  }
+  /* .hideUpload ::v-deep .el-upload--picture-card {
+  display: none;
+}
+.previewImg {
+  text-align: center;
+}
+::v-deep .el-upload--picture-card {
+  margin-top: 10px;
+  width: 30vw;
+  height: 30vw;
+  line-height: 30vw;
+}
+::v-deep .el-upload-list--picture-card .el-upload-list__item {
+  background-color: transparent;
+  border: 0;
+} */
+
+  .imgBox {
+    text-align: center;
+    padding-top: 10px;
+  }
+  .imgBox ::v-deep .el-upload--picture-card {
+    width: 25vw;
+    height: 25vw;
+  }
+  .imgBox ::v-deep .el-upload {
+    width: 25vw;
+    height: 25vw;
+    line-height: 25vw;
+  }
+  .imgBox ::v-deep .avatar {
+    width: 25vw;
+    height: 25vw;
+    display: block;
+  }
+  ::v-deep .el-upload-list--picture-card .el-upload-list__item {
+    width: 25vw;
+    height: 25vw;
+  }
+  .hideUpload ::v-deep .el-upload--picture-card {
+    display: none;
+  }
+}
