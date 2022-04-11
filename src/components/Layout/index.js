@@ -7,7 +7,7 @@ const LayoutWithRoute = ({ children }) => {
     <Layout style={{ minHeight: '100vh'}} >
       <Header />
       <Layout>
-        <Content style={{background:'#fff'}}>{children}</Content>
+        <Content style={{background:'#fff',paddingTop:'64px'}}>{children}</Content>
       </Layout>
     </Layout>
   );

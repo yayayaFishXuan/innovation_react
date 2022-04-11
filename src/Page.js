@@ -6,6 +6,7 @@ import Store from './views/Store';
 import Upload from './views/Upload';
 import Rank from './views/Rank';
 import SingleItem from './views/SingleItem';
+import Cart from './views/Cart';
 
 
 class Page extends Component {
@@ -18,6 +19,7 @@ class Page extends Component {
                     <RouteApp path={"/Upload"} component={Upload} />
                     <RouteApp path={"/Rank"} component={Rank} />
                     <RouteApp path={"/SingleItem"} component={SingleItem} />
+                    <RouteApp path={"/Cart"} component={Cart} />
                 </Switch>
             </BrowserRouter>
         )

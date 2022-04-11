@@ -5,7 +5,7 @@ import Logo from "../../assets/Logo.svg";
 import { InitContext } from '../../index';
 import '../../style/Metamask.scss'
 import mm from '../../assets/metamask-browser.svg';
-import { StarFilled,UserOutlined } from '@ant-design/icons';
+import { StarFilled,UserOutlined,ShoppingFilled } from '@ant-design/icons';
 
 
 
@@ -74,14 +74,12 @@ const Header = () => {
 
   return (
     <React.Fragment>
-    <Header className="header" style={{ zIndex: 1,background:'#fff', width: '100%' }}>
-      <Menu mode="horizontal">
-        <Menu.Item key="Logo" onClick={() => window.location.assign("http://localhost:3000/")}>{/*先暫時這樣寫，之後改 */}
-          <div style={{ display: 'flex' }}>
+    <Header className="header" style={{ zIndex: 1,background:'#fff',width: '100%',display: 'flex',boxShadow: '0px 3px #3434345a',position:'fixed'}}>
+          <div style={{cursor: 'pointer'}} className="logo"  onClick={() => window.location.assign("http://localhost:3000/")}>
             <img style={{ marginRight: '10px' }} src={Logo} alt="Logo" />
             <span style={{ fontSize: '22px' }}>INNOVATION</span>
           </div>
-        </Menu.Item>
+      <Menu mode="horizontal"   style={{justifyContent: 'flex-end' ,width: '87%'}}>
         <Menu.Item key="/Rank">
           <span>排行榜</span>
           <Link to="/Rank"></Link>
@@ -93,6 +91,10 @@ const Header = () => {
         <Menu.Item key="/Upload">
           <span>上架作品</span>
           <Link to="/Upload"></Link>
+        </Menu.Item>
+        <Menu.Item key="/Cart">
+          <ShoppingFilled style={{ fontSize: '22px' }}/>
+          <Link to="/Cart"></Link>
         </Menu.Item>
         {/* <Menu.Item key="/Community">
           <span>社群</span>
