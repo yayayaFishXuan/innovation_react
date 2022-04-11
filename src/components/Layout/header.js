@@ -5,6 +5,8 @@ import Logo from "../../assets/Logo.svg";
 import { InitContext } from '../../index';
 import '../../style/Metamask.scss'
 import mm from '../../assets/metamask-browser.svg';
+import { StarFilled,UserOutlined } from '@ant-design/icons';
+
 
 
 const Header = () => {
@@ -13,7 +15,9 @@ const Header = () => {
   const location = useLocation();
   const ethereum = window.ethereum
 
-  const init = () => {
+  function init() {
+    console.log(sessionStorage.getItem('tk'));
+    contextData.setTipShow(sessionStorage.getItem('tk'))
     if (contextData.isinstall === true) {
       login()
     }
@@ -26,6 +30,7 @@ const Header = () => {
     })
     const account = accounts[0]
     contextData.setAddress(account)
+    sessionStorage.setItem('user',account)
   }
 
 
@@ -34,8 +39,10 @@ const Header = () => {
     useEffect(() => {
       if (typeof ethereum !== 'undefined' && ethereum.isMetaMask) {
         contextData.setIsinstall(true);
+        sessionStorage.setItem('tk', 'none')
       } else {
         contextData.setIsinstall(false);
+        sessionStorage.setItem('tk', true)
       }
     }, [contextData])
   }
@@ -48,25 +55,26 @@ const Header = () => {
 
   useEffect(() => {
     if (
-
-      contextData.address === null ||
-      contextData.address === 'undefined' ||
-      contextData.address === ''
+      sessionStorage.getItem('user') === null ||
+      sessionStorage.getItem('user') === 'undefined' ||
+      sessionStorage.getItem('user') === ''
     ) {
       if (history.location.pathname !== '/'){
         history.push('/');
         if(contextData.isinstall === false){
+          sessionStorage.setItem('tk', true)
           contextData.setTipShow(true);
           history.push('/');
         }
       }
       // window.location.assign("http://localhost:3000/")    
     }
+
   }, [location,contextData])
 
   return (
     <React.Fragment>
-    <Header className="header" style={{ zIndex: 1, width: '100%', background: '#fff' }}>
+    <Header className="header" style={{ zIndex: 1,background:'#fff', width: '100%' }}>
       <Menu mode="horizontal">
         <Menu.Item key="Logo" onClick={() => window.location.assign("http://localhost:3000/")}>{/*先暫時這樣寫，之後改 */}
           <div style={{ display: 'flex' }}>
@@ -86,6 +94,18 @@ const Header = () => {
           <span>上架作品</span>
           <Link to="/Upload"></Link>
         </Menu.Item>
+        {/* <Menu.Item key="/Community">
+          <span>社群</span>
+          <Link to="/Community"></Link>
+        </Menu.Item>
+        <Menu.Item key="/Cart">
+          <StarFilled style={{fontSize:'25px'}} />          
+        <Link to="/Cart"></Link>
+        </Menu.Item>
+        <Menu.Item key="/User">
+          <UserOutlined style={{fontSize:'25px'}} />         
+        <Link to="/User"></Link>
+        </Menu.Item> */}
       </Menu>
     </Header>
       <div className="installtip" style={{display:contextData.tipShow}}>
