@@ -7,6 +7,10 @@ import Upload from './views/Upload';
 import Rank from './views/Rank';
 import SingleItem from './views/SingleItem';
 import Cart from './views/Cart';
+import Community from './views/Community';
+import ComMsg from './views/ComMsg';
+import ComLove from './views/ComLove';
+import ComTan from './views/ComTan';
 
 
 class Page extends Component {
@@ -20,6 +24,10 @@ class Page extends Component {
                     <RouteApp path={"/Rank"} component={Rank} />
                     <RouteApp path={"/SingleItem"} component={SingleItem} />
                     <RouteApp path={"/Cart"} component={Cart} />
+                    <RouteApp path={"/Community"} component={Community} />
+                    <RouteApp path={"/ComMsg"} component={ComMsg} />
+                    <RouteApp path={"/ComLove"} component={ComLove} />
+                    <RouteApp path={"/ComTan"} component={ComTan} />
                 </Switch>
             </BrowserRouter>
         )

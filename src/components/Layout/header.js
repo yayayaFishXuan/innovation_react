@@ -79,7 +79,10 @@ const Header = () => {
             <img style={{ marginRight: '10px' }} src={Logo} alt="Logo" />
             <span style={{ fontSize: '22px' }}>INNOVATION</span>
           </div>
-      <Menu mode="horizontal"   style={{justifyContent: 'flex-end' ,width: '87%'}}>
+      {/* <Menu mode="horizontal"   style={{justifyContent: 'flex-end' ,width: '87%'}}> */}
+      {/* 我暫時改80 */}
+      <Menu mode="horizontal"   style={{justifyContent: 'flex-end' ,width: '80%'}}>
+
         <Menu.Item key="/Rank">
           <span>排行榜</span>
           <Link to="/Rank"></Link>
@@ -91,6 +94,10 @@ const Header = () => {
         <Menu.Item key="/Upload">
           <span>上架作品</span>
           <Link to="/Upload"></Link>
+        </Menu.Item>
+        <Menu.Item key="/Community">
+          <span>社群</span>
+          <Link to="/Community"></Link>
         </Menu.Item>
         <Menu.Item key="/Cart">
           <ShoppingFilled style={{ fontSize: '22px' }}/>
