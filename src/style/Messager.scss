@@ -1,0 +1,115 @@
+// .header{
+//   background-color: rgb(172, 171, 171);
+//   width: 100vw;
+//   height: 70px;
+// }
+// .messager{
+//   width: 100vw;
+//   height: calc(100vh - 70px);
+//   display: flex;
+//   overflow: hidden;/*隱藏滾輪*/
+// }
+
+// .chatMenu{
+//   flex: 3;
+// }
+// .chatMenuInput{
+//   width: 85%;
+//   padding: 10px;
+//   border: none;
+//   border-bottom: 1px solid gray;
+// }
+
+// .chatBox{
+//   // flex: 1;
+//   height: 150px;
+//   background-color: #cccccc;
+//   bottom: '0px';
+// }
+
+// .chatBoxWrapper{
+//   display: flex;
+//   flex-direction: column;
+// }
+
+.ant-notification-notice {
+    padding: 0px 0px; // 內距預設16px 24px
+  }
+  
+  .ant-notification-notice-close { // 關閉對話框的那顆按鈕
+    top: 10px;
+    right: 10px;
+  }
+  
+  .ant-notification-notice-message {
+    margin: 3px;
+  }
+  
+  .chatBoxPerson{
+    display: flex;
+    align-items: center;
+  }
+  
+  .chatBoxImg{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+  }
+  
+  .chatBoxName{
+    font-size: 18px;
+    margin-right: 3px;
+  }
+  
+  .chatBoxOnline{
+    font-size: 15px;
+    color: lightgreen;
+  }
+  
+  .chatBoxTop{
+    height: 225px;
+    overflow-y: scroll;
+    border-top: 1px solid rgb(214, 214, 214);
+    padding: 3px;
+  }
+  
+  .chatBoxBottom{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+  }
+  
+  .chatMessageInput{
+    background-color: rgb(228, 224, 224);
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    height: 25px;
+    padding: 8px;
+    margin: 2px;
+  }
+  
+  .chatMessageInput:focus {
+    outline: none;
+  }
+  
+  .chatMessageButton{
+    width: 70px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color:#1877f2;
+    color:white;
+  }
+  
+  .chatMessageButton:focus {
+    outline: none;
+  }
+  
+  .chatMenuWrapper, .chatBoxWrapper{
+    height: 100%;
+  }
+  
