@@ -5,7 +5,6 @@ import { Link, useLocation } from 'react-router-dom';
 
 import { Button } from 'antd';
 import '../style/Home.scss';
-import wow from '../assets/home/wow.svg';
 
 class Home extends Component {
     constructor(props) {
@@ -28,12 +27,6 @@ class Home extends Component {
                 text_title: '社群',
                 text_con:
                     '在這裡你可以認識志同道合的使用者以進行交流,也可發佈貼文來宣傳作品或是抒發心情。'
-            },
-            {
-                img_src: wow,
-                text_title: '收集紀念幣',
-                text_con:
-                    '除了拍賣市場及社群外,INNOVATION還設計了許多各個樣式的紀念幣,等著你去收集呢!'
             }]
         }
     }
