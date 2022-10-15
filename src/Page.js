@@ -11,6 +11,7 @@ import Community from './views/Community';
 import ComMsg from './views/ComMsg';
 import ComLove from './views/ComLove';
 import ComTan from './views/ComTan';
+import ComFollow from './views/ComFollow';
 
 
 class Page extends Component {
@@ -26,6 +27,7 @@ class Page extends Component {
                     <RouteApp path={"/Cart"} component={Cart} />
                     <RouteApp path={"/Community"} component={Community} />
                     <RouteApp path={"/ComMsg"} component={ComMsg} />
+                    <RouteApp path={"/ComFollow"} component={ComFollow} />
                     <RouteApp path={"/ComLove"} component={ComLove} />
                     <RouteApp path={"/ComTan"} component={ComTan} />
                 </Switch>

@@ -5,7 +5,7 @@ import '../style/Community.scss'
 import Post from '../components/Post'
 import PostCard from '../components/PostCard'
 import moment from "moment";
-import { LaptopOutlined, NotificationOutlined, UserOutlined, HomeFilled, HeartFilled, MessageFilled, SearchOutlined } from '@ant-design/icons';
+import { LaptopOutlined, NotificationOutlined, UserOutlined, HomeFilled, HeartFilled, MessageFilled, SearchOutlined,CompassFilled } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, Divider, List, Avatar } from 'antd';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 
@@ -18,23 +18,69 @@ const Community = (props) => {
     const { Content, Sider } = Layout;
     const postData = [
         {
-            postId: 1,
-            userName: "Annie",
-            postTime: moment("2022-06-05 22:57:36"),
-            content: '天氣真好'
+            postId:1,
+            userName:'Anna',
+            content:'hihi',
+            file:require('../assets/uu/cat1.jpg'),
+            postTime:'2020-04-22',
+            // status:true,
+            // isThumb:true,
+            // isLove:true,
+            userId: 1,
+            userImg:"data.user_img",
+            comments:[
+                {
+                    commentsid:1,
+                    userid:2,
+                    avatar:require('../assets/user/user.jpg'),//留言者頭貼
+                    author:'Susanna',//留言者姓名
+                    content:'hi~',//留言內容
+                    datetime:'2020-04-22'//留言時間
+                },
+                {
+                    commentsid:2,
+                    userid:3,
+                    avatar:require('../assets/uu/cat1.jpg'),
+                    author:'Diane',
+                    content:'哈囉',
+                    datetime:'2020-04-22'
+                },
+                {
+                    commentsid:3,
+                    userid:1,
+                    avatar:require('../assets/uu/cat1.jpg'),
+                    author:'Anna',
+                    content:'你好你好',
+                    datetime:'2020-04-22'
+                }
+            ]
+        },
+        {                  
+            postId:2,
+            userName:'Susanna',
+            content:'天氣真好',
+            file:require('../assets/uu/cat1.jpg'),
+            postTime:'2020-04-22',
+            // status:true,
+            // isThumb:true,
+            // isLove:false,
+            userId:2,
+            userImg:require('../assets/user/user.jpg'),
+            comments:[]
         },
         {
-            postId: 2,
-            userName: "Annie",
-            postTime: moment("2022-06-05 22:57:36"),
-            content: '哈哈哈'
-        },
-        {
-            postId: 3,
-            userName: "Marry",
-            postTime: moment("2022-06-05 22:57:36"),
-            content: '加油'
-        },
+            postId:3,
+            userName:'Diane',
+            content:'La~La~La~',
+            file:require('../assets/uu/cat1.jpg'),
+            postTime:'2020-04-22',
+            // status:true,
+            // isThumb:false,
+            // isLove:false,
+            userId: 2,
+            userImg:"data.user_img",
+            comments:[]
+        }
     ];
     const friend = [
         {
@@ -83,7 +129,7 @@ const Community = (props) => {
             {/* <Layout> */}
 
 
-            <Sider width={200} className="site-layout-background" style={{ background: 'white', position: 'fixed' }}>
+            <Sider width={250} className="site-layout-background" style={{ background: 'white', position: 'fixed' }}>
                 <div>
                     <Menu
                         mode="vertical"
@@ -97,9 +143,9 @@ const Community = (props) => {
                             <HomeFilled style={{color:'#6087BF',fontSize:'18px'}}/><span style={{fontSize:'15px'}}>首頁</span>
                             <Link to="/Community"></Link>
                         </Menu.Item>
-                        <Menu.Item key="/ComMsg">
-                            <MessageFilled style={{color:'#6087BF',fontSize:'18px'}}/><span style={{fontSize:'15px'}}>訊息</span>
-                            <Link to="/ComMsg"></Link>
+                        <Menu.Item key="/ComFollow">
+                            <CompassFilled style={{color:'#6087BF',fontSize:'18px'}}/><span style={{fontSize:'15px'}}>追蹤</span>
+                            <Link to="/ComFollow"></Link>
                         </Menu.Item>
                         <Menu.Item key="/ComLove">
                             <HeartFilled style={{color:'#6087BF',fontSize:'18px'}}/><span style={{fontSize:'15px'}}>收藏</span>
@@ -124,7 +170,7 @@ const Community = (props) => {
                                 <List.Item onClick={()=>openNotification(item)} style={{cursor: 'pointer'}}>
                                     <List.Item.Meta
                                         avatar={<Avatar src={item.img} style={{ marginLeft: '10px' }} />}
-                                        title={<div style={{ display: 'flex', flex: 1 }}><div style={{ display: 'flex', flex: 0.7 }}>{item.name}</div><span style={{ color: 'green', display: 'flex', flex: 0.3 }}>●</span></div>}
+                                        title={<div style={{ display: 'flex', flex: 1 }}><div style={{ display: 'flex', flex: 0.9 }}>{item.name}</div><span style={{ color: 'green', display: 'flex', flex: 0.1 }}>●</span></div>}
                                      />
                                 </List.Item>
                             )}
@@ -134,11 +180,11 @@ const Community = (props) => {
 
             </Sider>
 
-            <div style={{ width: '200px' }} />
+            <div style={{ width: '300px' }} />
 
 
             {/* <Layout width={1000} style={{ background: 'white' }}> */}
-            <div style={{ display: 'flex', flexDirection: 'column', width: '68%', marginLeft: '5px', marginRight: '5px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', width: '75%', marginLeft: '5px', marginRight: '5px' }}>
                 <Post />
                 {postData.map((pp) => {
                     return (
@@ -154,7 +200,7 @@ const Community = (props) => {
             
             {/* </Layout> */}
             {/* <Layout> */}
-            <div style={{ width: '15%', textAlign: 'center',marginLeft:'85%',position:'fixed',marginTop:'10px' }}>
+            {/* <div style={{ width: '15%', textAlign: 'center',marginLeft:'85%',position:'fixed',marginTop:'10px' }}>
 
                 <span style={{fontSize:'20px'}}>推薦用戶</span>
 
@@ -173,7 +219,7 @@ const Community = (props) => {
                         )}
                     />
                 </div>
-            </div>
+            </div> */}
 
             {/* </Layout> */}
             {/* </Layout> */}

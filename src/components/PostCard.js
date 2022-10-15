@@ -381,6 +381,7 @@ const PostCard = props => {
                         <span className="username">{postInfo.userName}</span>
                         <span className="time">{moment(postInfo.postTime).format("YYYY-MM-DD HH:mm:ss")}</span>
                         <span className="content">{postInfo.content}</span>
+                        <img src={postInfo.file} alt="" onClick={()=>{console.log("hi");}} />
                     </div>
                     {/* <EllipsisOutlined onClick={showDrawer} /> */}
                     <EllipsisOutlined  />
