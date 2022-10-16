@@ -1,0 +1,30 @@
+$phones-media: 768px;
+@media only screen and (max-width: $phones-media) {
+  // 手機css
+}
+@media only screen and (min-width: $phones-media) {
+  .group {
+    width: 90vw;
+    margin: 20px;
+    text-align: center;
+    .eachItem {
+      float: left;
+      width: 15vw;
+      height: 45vh;
+      // margin: 1.5vw;
+    }
+    .itemImg {
+      width: 75%;
+      background-color: white;
+      border: none;
+      text-decoration: none;
+      color: black;
+      img {
+        width: 100%;
+      }
+    }
+    .itemImg:hover {
+      cursor: pointer; //鼠標變手指頭
+    }
+  }
+}

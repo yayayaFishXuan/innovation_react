@@ -1,0 +1,18 @@
+#love {
+}
+.loveGroup {
+    float: left;
+    width: 12vw;
+    height: 12vw;
+    margin: 40px;
+    box-shadow: 3px 3px 10px rgb(231, 228, 228);
+    border-radius: 15px;
+    text-align: center;
+    line-height: 12vw;
+    color: black;
+    background-color: #e1dddd80;
+}
+.loveGroup:hover{
+    cursor: pointer;
+    color: black;
+}
