@@ -139,7 +139,7 @@ const SingleGroup = (props) => {
 
             <div className="group">
                 {groupItem.map((item, key) =>
-                    <div className='eachItem' >
+                    <div key={key} className='eachItem' >
                         <div className='itemImg' >
                             <img src={item.img} alt="" onClick={() => { this.props.history.push({ pathname: "/SingleItem", search: '?query=' + item.id, state: { item: item } }) }} />
                             <div style={{ textAlign: 'left', fontSize: '18px', lineHeight: '2' }} >

@@ -125,6 +125,10 @@ const Header = () => {
             <ShoppingFilled style={{ fontSize: "22px" }} />
             <Link to="/Cart"></Link>
           </Menu.Item>
+          <Menu.Item key="/User">
+            <UserOutlined style={{fontSize:'22px'}} />         
+            <Link to="/User"></Link>
+          </Menu.Item>
           {/* <Menu.Item key="/Community">
           <span>社群</span>
           <Link to="/Community"></Link>

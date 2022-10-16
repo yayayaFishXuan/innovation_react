@@ -13,6 +13,7 @@ import ComLove from './views/ComLove';
 import SingleGroup from './views/SingleGroup';
 import ComTan from './views/ComTan';
 import ComFollow from './views/ComFollow';
+import User from './views/User';
 
 
 class Page extends Component {
@@ -32,6 +33,7 @@ class Page extends Component {
                     <RouteApp path={"/ComLove"} component={ComLove} />
                     <RouteApp path={"/SingleGroup"} component={SingleGroup} />
                     <RouteApp path={"/ComTan"} component={ComTan} />
+                    <RouteApp path={"/User"} component={User} />
                 </Switch>
             </BrowserRouter>
         )

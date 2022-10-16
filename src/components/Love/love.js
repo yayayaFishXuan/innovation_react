@@ -1,11 +1,13 @@
 import React, { Component, useContext, useState, useEffect, useRef } from 'react';
+import { useHistory } from "react-router-dom";
 
 const Love = (props) => {
+    let history = useHistory();
     const { group } = props;
     return (
-        <a href={'/SingleGroup?query='+{group}} className='loveGroup'>
+        <div className='loveGroup' onClick={() => {history.push({ pathname:"/SingleGroup", search:'?query='+group })}}>
             {group}
-        </a>
+        </div>
     )
 }
 export default Love;

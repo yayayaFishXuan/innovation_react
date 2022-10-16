@@ -15,6 +15,7 @@ import ChatTitle from "../components/chatbox/ChatTitle";
 import Chat from "../components/chatbox/Chat";
 
 const Community = (props) => {
+
     const { Content, Sider } = Layout;
     const [postData,setPostData] = useState([{
         postId:1,
