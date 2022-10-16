@@ -16,72 +16,136 @@ import Chat from "../components/chatbox/Chat";
 
 const Community = (props) => {
     const { Content, Sider } = Layout;
-    const postData = [
-        {
-            postId:1,
-            userName:'Anna',
-            content:'hihi',
-            file:require('../assets/uu/cat1.jpg'),
-            postTime:'2020-04-22',
-            // status:true,
-            // isThumb:true,
-            // isLove:true,
-            userId: 1,
-            userImg:"data.user_img",
-            comments:[
-                {
-                    commentsid:1,
-                    userid:2,
-                    avatar:require('../assets/user/user.jpg'),//留言者頭貼
-                    author:'Susanna',//留言者姓名
-                    content:'hi~',//留言內容
-                    datetime:'2020-04-22'//留言時間
-                },
-                {
-                    commentsid:2,
-                    userid:3,
-                    avatar:require('../assets/uu/cat1.jpg'),
-                    author:'Diane',
-                    content:'哈囉',
-                    datetime:'2020-04-22'
-                },
-                {
-                    commentsid:3,
-                    userid:1,
-                    avatar:require('../assets/uu/cat1.jpg'),
-                    author:'Anna',
-                    content:'你好你好',
-                    datetime:'2020-04-22'
-                }
-            ]
-        },
-        {                  
-            postId:2,
-            userName:'Susanna',
-            content:'天氣真好',
-            file:require('../assets/uu/cat1.jpg'),
-            postTime:'2020-04-22',
-            // status:true,
-            // isThumb:true,
-            // isLove:false,
-            userId:2,
-            userImg:require('../assets/user/user.jpg'),
-            comments:[]
-        },
-        {
-            postId:3,
-            userName:'Diane',
-            content:'La~La~La~',
-            file:require('../assets/uu/cat1.jpg'),
-            postTime:'2020-04-22',
-            // status:true,
-            // isThumb:false,
-            // isLove:false,
-            userId: 2,
-            userImg:"data.user_img",
-            comments:[]
-        }
-    ];
+    const [postData,setPostData] = useState([{
+        postId:1,
+        userName:'Anna',
+        content:'hihi',
+        file:require('../assets/uu/cat1.jpg'),
+        postTime:'2020-04-22',
+        // status:true,
+        // isThumb:true,
+        // isLove:true,
+        userId: 1,
+        userImg:"data.user_img",
+        comments:[
+            {
+                commentsid:1,
+                userid:2,
+                avatar:require('../assets/user/user.jpg'),//留言者頭貼
+                author:'Susanna',//留言者姓名
+                content:'hi~',//留言內容
+                datetime:'2020-04-22'//留言時間
+            },
+            {
+                commentsid:2,
+                userid:3,
+                avatar:require('../assets/uu/cat1.jpg'),
+                author:'Diane',
+                content:'哈囉',
+                datetime:'2020-04-22'
+            },
+            {
+                commentsid:3,
+                userid:1,
+                avatar:require('../assets/uu/cat1.jpg'),
+                author:'Anna',
+                content:'你好你好',
+                datetime:'2020-04-22'
+            }
+        ]
+    },
+    {                  
+        postId:2,
+        userName:'Susanna',
+        content:'天氣真好',
+        file:require('../assets/uu/cat1.jpg'),
+        postTime:'2020-04-22',
+        // status:true,
+        // isThumb:true,
+        // isLove:false,
+        userId:2,
+        userImg:require('../assets/user/user.jpg'),
+        comments:[]
+    },
+    {
+        postId:3,
+        userName:'Diane',
+        content:'La~La~La~',
+        file:require('../assets/uu/cat1.jpg'),
+        postTime:'2020-04-22',
+        // status:true,
+        // isThumb:false,
+        // isLove:false,
+        userId: 2,
+        userImg:"data.user_img",
+        comments:[]
+    }])
+    // const postData = [
+    //     {
+    //         postId:1,
+    //         userName:'Anna',
+    //         content:'hihi',
+    //         file:require('../assets/uu/cat1.jpg'),
+    //         postTime:'2020-04-22',
+    //         // status:true,
+    //         // isThumb:true,
+    //         // isLove:true,
+    //         userId: 1,
+    //         userImg:"data.user_img",
+    //         comments:[
+    //             {
+    //                 commentsid:1,
+    //                 userid:2,
+    //                 avatar:require('../assets/user/user.jpg'),//留言者頭貼
+    //                 author:'Susanna',//留言者姓名
+    //                 content:'hi~',//留言內容
+    //                 datetime:'2020-04-22'//留言時間
+    //             },
+    //             {
+    //                 commentsid:2,
+    //                 userid:3,
+    //                 avatar:require('../assets/uu/cat1.jpg'),
+    //                 author:'Diane',
+    //                 content:'哈囉',
+    //                 datetime:'2020-04-22'
+    //             },
+    //             {
+    //                 commentsid:3,
+    //                 userid:1,
+    //                 avatar:require('../assets/uu/cat1.jpg'),
+    //                 author:'Anna',
+    //                 content:'你好你好',
+    //                 datetime:'2020-04-22'
+    //             }
+    //         ]
+    //     },
+    //     {                  
+    //         postId:2,
+    //         userName:'Susanna',
+    //         content:'天氣真好',
+    //         file:require('../assets/uu/cat1.jpg'),
+    //         postTime:'2020-04-22',
+    //         // status:true,
+    //         // isThumb:true,
+    //         // isLove:false,
+    //         userId:2,
+    //         userImg:require('../assets/user/user.jpg'),
+    //         comments:[]
+    //     },
+    //     {
+    //         postId:3,
+    //         userName:'Diane',
+    //         content:'La~La~La~',
+    //         file:require('../assets/uu/cat1.jpg'),
+    //         postTime:'2020-04-22',
+    //         // status:true,
+    //         // isThumb:false,
+    //         // isLove:false,
+    //         userId: 2,
+    //         userImg:"data.user_img",
+    //         comments:[]
+    //     }
+    // ];
     const friend = [
         {
             userId: 1,
@@ -122,6 +186,27 @@ const Community = (props) => {
             },
         });
     };
+    const addPostData = Udata =>{
+        setPostData(preUdata=>[
+          ...preUdata,
+          {
+            // id:preUdata[preUdata.length-1].id+1,
+            // name:collectionWorks[selectWhat].name,
+            // author:collectionWorks[selectWhat].author,
+            // intro:collectionWorks[selectWhat].intro,
+            // tag:collectionWorks[selectWhat].tag,
+            // img:collectionWorks[selectWhat].img,
+            ...Udata
+          }
+        ])
+        
+        notification.success({
+          message: "通知",
+          description: "上架成功",
+          duration: 2,
+          placemen: "topLeft",
+        });
+      }
 
     return (
         <div style={{ display: 'flex' }}>
@@ -185,7 +270,7 @@ const Community = (props) => {
 
             {/* <Layout width={1000} style={{ background: 'white' }}> */}
             <div style={{ display: 'flex', flexDirection: 'column', width: '75%', marginLeft: '5px', marginRight: '5px' }}>
-                <Post />
+                <Post addPostData={addPostData}/>
                 {postData.map((pp) => {
                     return (
                         <PostCard
