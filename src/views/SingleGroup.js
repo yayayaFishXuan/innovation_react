@@ -13,6 +13,7 @@ import Chat from "../components/chatbox/Chat";
 import { HeartOutlined } from '@ant-design/icons';
 
 const SingleGroup = (props) => {
+    let history = useHistory();
     const { Content, Sider } = Layout;
     const friend = [
         {
@@ -58,27 +59,27 @@ const SingleGroup = (props) => {
     const groupItem = [
         {
             id: '1',
-            name: '測試用作品1',
+            name: '收藏作品1',
             author: '作者xxx',
             price: '545.77',
-            img: '/storeZip/1.jpg',
+            img: '/storeZip/6.jpg',
             good:true
 
         },
         {
             id: '2',
-            name: '測試用作品2',
+            name: '收藏作品2',
             author: '作者xxx',
             price: '545.77',
-            img: '/storeZip/2.jpg',
+            img: '/storeZip/7.jpg',
             good:true
         },
         {
             id: '3',
-            name: '測試用作品3',
+            name: '收藏作品3',
             author: '作者xxx',
             price: '545.77',
-            img: '/storeZip/3.jpg',
+            img: '/storeZip/8.jpg',
             good:true
         },
     ]
@@ -141,7 +142,7 @@ const SingleGroup = (props) => {
                 {groupItem.map((item, key) =>
                     <div key={key} className='eachItem' >
                         <div className='itemImg' >
-                            <img src={item.img} alt="" onClick={() => { this.props.history.push({ pathname: "/SingleItem", search: '?query=' + item.id, state: { item: item } }) }} />
+                            <img src={item.img} alt="" onClick={() => { history.push({ pathname: "/SingleItem", search: '?query=' + item.id, state: { market: item } }) }} />
                             <div style={{ textAlign: 'left', fontSize: '18px', lineHeight: '2' }} >
                                 {item.name}
                                 {

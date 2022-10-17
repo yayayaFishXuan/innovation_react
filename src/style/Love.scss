@@ -9,8 +9,20 @@
     border-radius: 15px;
     text-align: center;
     line-height: 12vw;
-    background-color: #e1dddd80;
 }
 .loveGroup:hover{
     cursor: pointer;
+}
+.groupimg {
+    width: 12vw;
+    height: 12vw;
+    background-size: cover;
+    opacity: 0.5;
+    border-radius: 15px;
+}
+.groupName {
+    position: relative;
+    bottom: 100%;
+    font-size: 20px;
+    font-weight: 1000;
 }

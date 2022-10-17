@@ -6,7 +6,12 @@ const Love = (props) => {
     const { group } = props;
     return (
         <div className='loveGroup' onClick={() => {history.push({ pathname:"/SingleGroup", search:'?query='+group })}}>
-            {group}
+            {(group !== "+") ? (
+                <><img src= {"/group/"+group+".jpg"} className="groupimg" />
+                <span className='groupName'>{group}</span></>
+            ):(
+                <span>{group}</span>
+            )}
         </div>
     )
 }
