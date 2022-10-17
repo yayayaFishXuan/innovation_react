@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../style/SingleItem.scss';
-import { Button,Rate } from 'antd';
+import { Button, Rate, notification } from 'antd';
 import TurnoverRateLine from '../components/Chart/PriceInformation'
 class SingleItem extends Component {
     constructor(props) {
@@ -27,6 +27,7 @@ class SingleItem extends Component {
     }
 
     render() {
+        notification.destroy();
         const { TokenId, describe, trendUrl, market } = this.state
         return (
             <div>

@@ -3,7 +3,7 @@ import { DownOutlined } from '@ant-design/icons'
 // import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { Link, useLocation } from 'react-router-dom';
 
-import { Button } from 'antd';
+import { Button, notification } from 'antd';
 import '../style/Home.scss';
 
 class Home extends Component {
@@ -39,6 +39,7 @@ class Home extends Component {
 
     }
     render() {
+        notification.destroy();
         return (
             <div className='home'>
                 <div className="tit">

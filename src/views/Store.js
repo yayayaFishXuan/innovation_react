@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../style/store.scss';
 import { HeartFilled,HeartOutlined } from '@ant-design/icons';
+import { notification } from 'antd';
+
 class Store extends Component {
     constructor(props) {
         super(props)
@@ -94,6 +96,7 @@ class Store extends Component {
 
     toSingl
     render() {
+        notification.destroy();
         console.log(this.props.match)
         const { markets } = this.state
         return (

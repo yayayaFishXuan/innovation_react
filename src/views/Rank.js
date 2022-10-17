@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Table } from 'antd';
-import {  Select } from 'antd';
-import { Rate } from 'antd';
+import { Table, Select, Rate, notification } from 'antd';
+
 class Rank extends Component {
     constructor(props) {
         super(props)
@@ -172,6 +171,7 @@ class Rank extends Component {
 
     };
     render() {
+        notification.destroy();
         const displayDatas = this.GetDisplayed();
         const { Option } = Select;
         const columns = [

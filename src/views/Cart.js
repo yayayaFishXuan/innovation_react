@@ -6,6 +6,7 @@ import { Modal, Form, Input, Switch, DatePicker,notification } from "antd";
 import moment from "moment";
 
 const Cart = (props) => {
+  notification.destroy();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [collectionWorks,setCollectionWorks] = useState([{
     id: 1,

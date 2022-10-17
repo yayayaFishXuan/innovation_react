@@ -1,5 +1,5 @@
 import React, { Fragment, PureComponent } from 'react';
-import { message, Form, Input, Button, Checkbox, Select , Switch, DatePicker } from 'antd';
+import { message, Form, Input, Button, Checkbox, Select , Switch, DatePicker, notification } from 'antd';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css'
 import '../style/Upload.scss';
@@ -117,6 +117,7 @@ class Upload extends PureComponent {
     }
 
     render() {
+        notification.destroy();
         const { crop, croppedImageUrl, src } = this.state;
         return (
             <Fragment>

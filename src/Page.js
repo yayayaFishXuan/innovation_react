@@ -15,9 +15,8 @@ import ComTan from './views/ComTan';
 import ComFollow from './views/ComFollow';
 import User from './views/User';
 
-
 class Page extends Component {
-    render() {
+    render() {        
         return (
             <BrowserRouter>
                 <Switch>
