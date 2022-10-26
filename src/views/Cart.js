@@ -145,13 +145,13 @@ const Cart = (props) => {
           </div>
         </Form>
       </Modal>
-      <div class="cart">
+      <div className="cart">
         <h3 id="cartTitle">作品收藏區</h3>
         {collectionWorks.length > 0 ? (
           <div className="store">
             {collectionWorks.map((collectionWork, key) => {
               return (
-                <div className="eachItem">
+                <div key={key} className="eachItem">
                   <div className="marketImg">
                     <img src={collectionWork.img} alt="" onClick={()=>{showModal(key)}} />
                   </div>

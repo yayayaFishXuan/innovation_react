@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { notification, Menu } from 'antd';
+import { Menu, notification, Avatar, Modal, Form, Input, Upload } from 'antd';
 import "../style/User.scss";
-import { UserOutlined, SettingFilled } from "@ant-design/icons";
+import { SettingFilled } from "@ant-design/icons";
+import userImg from '../assets/uu/ch1.jpg';
+import Userpage from '../components/User/userpage';
 
 class User extends Component {
   constructor(props) {
@@ -9,63 +11,109 @@ class User extends Component {
       this.state = { 
         user: {
           'name': 'Lulu',
-          'img': '',
-          'backgroundImg':require('../assets/user/PIC.png'),
+          'userImg': '',
+          'bgImg':require('../assets/user/PIC.png'),
           'on':3,
           'wait':0,
           'myNFT':3,
-          'introduction':''
-        }}
+          'introduction':'哈囉~',
+        },
+        userpage: '',
+        edit: false,
+      }
   }
 
-  changeMenu = (value) => {
-    console.log(value);
-  }
+  menuClick = (userpage)=>{
+    this.setState({userpage:userpage});
+  };
 
   render() {
-      const { user } = this.state;
+      const { user, userpage, edit } = this.state;
+      const { TextArea } = Input;
+      const handleOk = e => {
+        e.preventDefault();
+        this.setState({edit:false})
+      };
+      const handleCancel = () => {
+        this.setState({edit:false})
+      };
       notification.destroy();
       return (
         <div className="user">
-            <div className="userBg">
-              <img className="bgImg" src={user.backgroundImg} />
+          <Modal
+            title="編輯個人資料"
+            visible={edit}
+            okText="更改"
+            cancelText="取消"
+            onOk={handleOk}
+            onCancel={handleCancel}
+          >
+            <Form name="editForm" labelAlign='left' labelCol={{span:4}}>
+              <Form.Item label="名稱" name="name" initialValue={user.name} rules={[{required: true, message: "請輸入名稱"}]}>
+                <Input />
+              </Form.Item>
+              <Form.Item label="個人簡介" name="introduction" initialValue={user.introduction}>
+                <TextArea
+                  maxLength={100}
+                  showCount
+                  autoSize
+                  allowClear
+                  style={{ 'resize': 'none' }}
+                />
+              </Form.Item>
+              <Form.Item label="頭像" name="userImg">
+                <input type="file" />
+              </Form.Item>
+              <Form.Item label="背景圖片" name="bgImg">
+                <input type="file" />
+              </Form.Item>
+            </Form>
+          </Modal>
+
+          <div className="userBg">
+            <img className="bgImg" src={user.bgImg} alt="" />
+          </div>
+
+          <div className="userInfo">
+            <Avatar className="userImg" size={80} src={userImg} />
+            <br />
+            {user.name}<br />
+            <button className="edit" onClick={()=>(this.setState({edit:true}))}><SettingFilled /> 編輯</button><br />
+            <table className="nftState"><tbody>
+              <tr>
+                <td>{user.on}</td>
+                <td>{user.wait}</td>
+                <td>{user.myNFT}</td>
+              </tr>
+              <tr>
+                <td className="stateword" onClick={()=>this.menuClick('on')}>上架中</td>
+                <td className="stateword" onClick={()=>this.menuClick('wait')}>待上架</td>
+                <td className="stateword" onClick={()=>this.menuClick('myNFT')}>我的NFT</td>
+              </tr>
+            </tbody></table>
+            <hr />
+            {user.introduction !== '' ? user.introduction : '快來新增個人簡介吧！！'}
+          </div>
+
+          <div className="userPost">
+            <Menu mode="horizontal" defaultSelectedKeys={['post']}>
+                <Menu.Item key="Post" onClick={()=>this.menuClick('post')}>
+                  貼文
+                </Menu.Item>
+                <Menu.Item key="On" onClick={()=>this.menuClick('on')}>
+                  上架中
+                </Menu.Item>
+                <Menu.Item key="Wait" onClick={()=>this.menuClick('wait')}>
+                  待上架
+                </Menu.Item>
+                <Menu.Item key="MyNFT" onClick={()=>this.menuClick("myNFT")}>
+                  我的NFT
+                </Menu.Item>
+            </Menu>
+            <div className="userPage">
+              <Userpage userpage={userpage} />
             </div>
-            <div className="userInfo">
-              <UserOutlined className="userImg" />
-              <br />
-              {user.name}<br />
-              <button className="edit" onClick={()=>console.log('edit')}><SettingFilled /> 編輯</button><br />
-              <table className="nftState">
-                <tr>
-                  <td>{user.on}</td>
-                  <td>{user.wait}</td>
-                  <td>{user.myNFT}</td>
-                </tr>
-                <tr>
-                  <td className="stateword">上架中</td>
-                  <td className="stateword">待上架</td>
-                  <td className="stateword">我的NFT</td>
-                </tr>
-              </table>
-              <hr />
-              快來新增個人簡介吧！！
-            </div>
-            <div className="userPost">
-              <Menu mode="horizontal" defaultSelectedKeys={['Post']}>
-                  <Menu.Item key="Post" onClick={()=>this.changeMenu('post')}>
-                    貼文
-                  </Menu.Item>
-                  <Menu.Item key="On" onClick={()=>this.changeMenu('on')}>
-                    上架中
-                  </Menu.Item>
-                  <Menu.Item key="Wait" onClick={()=>this.changeMenu('wait')}>
-                    待上架
-                  </Menu.Item>
-                  <Menu.Item key="MyNFT" onClick={()=>this.changeMenu('myNFT')}>
-                    我的NFT
-                  </Menu.Item>
-              </Menu>
-            </div>
+          </div>
         </div>
       )
   }
