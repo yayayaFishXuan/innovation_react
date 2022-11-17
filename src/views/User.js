@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { Menu, notification, Avatar, Modal, Form, Input, Upload } from 'antd';
+import { Menu, notification, Avatar, Modal, Form, Input, Button, Upload } from 'antd';
 import "../style/User.scss";
 import { SettingFilled } from "@ant-design/icons";
-import userImg from '../assets/uu/ch1.jpg';
 import Userpage from '../components/User/userpage';
 
 class User extends Component {
@@ -11,7 +10,7 @@ class User extends Component {
       this.state = { 
         user: {
           'name': 'Lulu',
-          'userImg': '',
+          'userImg': require('../assets/uu/ch1.jpg'),
           'bgImg':require('../assets/user/PIC.png'),
           'on':3,
           'wait':0,
@@ -20,38 +19,81 @@ class User extends Component {
         },
         userpage: '',
         edit: false,
+        newUserImg: require('../assets/uu/ch1.jpg'),
+        newBgImg: require('../assets/user/PIC.png'),
       }
   }
 
   menuClick = (userpage)=>{
     this.setState({userpage:userpage});
   };
+  onSelectImgFile = (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+        const reader = new FileReader();
+        reader.addEventListener('load', () =>
+            this.setState({ newUserImg: reader.result })
+        );
+        reader.readAsDataURL(e.target.files[0]);
+    }
+  };
+  onSelectBgFile = (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+        const reader = new FileReader();
+        reader.addEventListener('load', () =>
+            this.setState({ newBgImg: reader.result })
+        );
+        reader.readAsDataURL(e.target.files[0]);
+    }
+  };
 
   render() {
-      const { user, userpage, edit } = this.state;
+      const { user, userpage, edit, newUserImg, newBgImg } = this.state;
       const { TextArea } = Input;
       const handleOk = e => {
-        e.preventDefault();
-        this.setState({edit:false})
+        this.setState({
+          user: {
+            ...user,
+            ...e,
+            userImg: newUserImg,
+            bgImg: newBgImg,
+          },
+          edit:false
+        });
       };
       const handleCancel = () => {
-        this.setState({edit:false})
+        this.setState({edit:false});
       };
       notification.destroy();
+
       return (
         <div className="user">
           <Modal
-            title="編輯個人資料"
+            title="編輯個人檔案"
             visible={edit}
-            okText="更改"
+            okText="完成"
             cancelText="取消"
-            onOk={handleOk}
+            // onOk={handleOk}
+            okButtonProps={{htmlType: 'submit', form: 'editForm'}}
             onCancel={handleCancel}
+            style={{top:'20px'}}
           >
-            <Form name="editForm" labelAlign='left' labelCol={{span:4}}>
+            <Form onFinish={handleOk} name="editForm" labelAlign='left' labelCol={{span:4}} >
+              <Form.Item label="頭像" value="userImg" className='imgFormItem'>
+                <Avatar size={80} src={newUserImg} /><br />
+                <input type="file" accept="image/*" onChange={this.onSelectImgFile} />
+                {/* <Button className="formEdit" onClick={this.onSelectImgFile}>編輯</Button> */}
+              </Form.Item>
+
+              <Form.Item label="背景圖片" value="bgImg" className='imgFormItem'>
+                <Avatar shape="square" style={{width:"288px",height:"62.4px"}} src={newBgImg} /><br />
+                <input type="file" accept="image/*" onChange={this.onSelectBgFile} />
+                {/* <Button className="formEdit" onClick={this.onSelectBgFile}>編輯</Button> */}
+              </Form.Item>
+
               <Form.Item label="名稱" name="name" initialValue={user.name} rules={[{required: true, message: "請輸入名稱"}]}>
                 <Input />
               </Form.Item>
+
               <Form.Item label="個人簡介" name="introduction" initialValue={user.introduction}>
                 <TextArea
                   maxLength={100}
@@ -61,12 +103,6 @@ class User extends Component {
                   style={{ 'resize': 'none' }}
                 />
               </Form.Item>
-              <Form.Item label="頭像" name="userImg">
-                <input type="file" />
-              </Form.Item>
-              <Form.Item label="背景圖片" name="bgImg">
-                <input type="file" />
-              </Form.Item>
             </Form>
           </Modal>
 
@@ -75,7 +111,7 @@ class User extends Component {
           </div>
 
           <div className="userInfo">
-            <Avatar className="userImg" size={80} src={userImg} />
+            <Avatar className="userImg" size={80} src={user.userImg} />
             <br />
             {user.name}<br />
             <button className="edit" onClick={()=>(this.setState({edit:true}))}><SettingFilled /> 編輯</button><br />
